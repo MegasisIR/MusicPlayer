@@ -1,5 +1,6 @@
-package com.sevenlearn.musicplayer;
+package m.t.musicplayer.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
-public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
-    private List<Music> musicList = Music.getList();
+import m.t.musicplayer.R;
+import m.t.musicplayer.model.Music;
 
+public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
+    private List<Music> musicList;
+    private int playingMusicPosition = -1;
+    private OnMusicListener listener;
+
+    public MusicAdapter(List<Music> musicList, OnMusicListener listener) {
+        this.musicList = musicList;
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -48,10 +56,38 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
             musicNameTv = itemView.findViewById(R.id.tv_music_name);
         }
 
-        public void bindMusic(Music music) {
+        public void bindMusic(final Music music) {
             simpleDraweeView.setActualImageResource(music.getCoverResId());
             artistTv.setText(music.getArtist());
             musicNameTv.setText(music.getName());
+
+            if (playingMusicPosition == getAdapterPosition()) {
+                musicNameTv.setTextColor(Color.RED);
+            } else {
+                musicNameTv.setTextColor(Color.blue(1));
+            }
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onClick(music, getAdapterPosition());
+                }
+            });
         }
+    }
+
+    public void notifyMusicChange(Music music) {
+        int index = musicList.indexOf(music);
+        if (index != -1) {
+            if (playingMusicPosition != index) {
+                notifyItemChanged(playingMusicPosition);
+                playingMusicPosition = index;
+                notifyItemChanged(playingMusicPosition);
+            }
+        }
+    }
+
+    public interface OnMusicListener {
+        void onClick(Music music, int position);
     }
 }

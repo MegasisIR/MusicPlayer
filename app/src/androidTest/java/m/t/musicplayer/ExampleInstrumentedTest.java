@@ -1,4 +1,4 @@
-package com.sevenlearn.musicplayer;
+package m.t.musicplayer;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.sevenlearn.musicplayer", appContext.getPackageName());
+        assertEquals("m.t.musicplayer", appContext.getPackageName());
     }
 }

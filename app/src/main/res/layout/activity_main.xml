@@ -1,143 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
+    android:layoutDirection="ltr"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-    <LinearLayout
+    tools:context="m.t.musicplayer.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frame_main_fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="12dp">
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/iv_main_artist"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                app:actualImageResource="@drawable/music_1_artist"
-                app:roundedCornerRadius="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="12dp"
-                android:layout_toEndOf="@id/iv_main_artist"
-                android:text="Evan Band"
-                android:textColor="@color/white" />
-
-
-        </RelativeLayout>
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="32dp"
-            app:actualImageResource="@drawable/music_1_cover"
-            app:roundedCornerRadius="12dp"
-            app:viewAspectRatio="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Chehel Gis"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <com.google.android.material.slider.Slider
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:value="40"
-            android:valueFrom="0"
-            app:haloColor="@color/white"
-            android:valueTo="100"
-            app:labelBehavior="gone"
-            app:thumbColor="@color/white"
-            app:trackColorActive="@color/white"
-            app:trackColorInactive="#55ffffff" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginEnd="42dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00:00"
-                android:textColor="@color/white80Alpha" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="06:31"
-                android:textColor="@color/white80Alpha" />
-        </FrameLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_skip_24dp"
-                android:layout_marginEnd="24dp"
-                />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                app:srcCompat="@drawable/ic_play_32dp"
-                android:padding="8dp"
-                app:backgroundTint="@color/white"
-                android:scaleType="centerInside"
-                android:background="@drawable/shape_circle_white"
-                />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                app:srcCompat="@drawable/ic_skip_forward_24dp"
-                />
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Playlist"
-            android:textSize="16sp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="32dp"
-            android:textColor="@color/white80Alpha"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="32dp"
-            android:paddingEnd="32dp"/>
-    </LinearLayout>
-
+        android:layout_height="wrap_content" />
 
 </androidx.core.widget.NestedScrollView>

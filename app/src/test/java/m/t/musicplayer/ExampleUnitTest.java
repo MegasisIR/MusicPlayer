@@ -1,4 +1,4 @@
-package com.sevenlearn.musicplayer;
+package m.t.musicplayer;
 
 import org.junit.Test;
 
